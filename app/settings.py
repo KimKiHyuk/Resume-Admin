@@ -15,8 +15,7 @@ import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-APP_DIR = os.path.join(BASE_DIR, "app")
-SECRETS_DIR = os.path.join(APP_DIR, '.secrets')
+SECRETS_DIR = os.path.join(BASE_DIR, '.secrets')
 SECRETS_BASE = os.path.join(SECRETS_DIR, 'key.json')
 secrets_base = json.loads(open(SECRETS_BASE, 'rt').read())
 

@@ -1,7 +1,11 @@
 language: python
 python:
-  - "3.6.9"
+- 3.6.9
 insall:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - python manage.py test
+- python manage.py test
+before_install:
+- openssl aes-256-cbc -K $encrypted_7a9d9837a892_key -iv $encrypted_7a9d9837a892_iv
+  -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
