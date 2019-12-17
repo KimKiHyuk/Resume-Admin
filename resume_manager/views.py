@@ -7,8 +7,23 @@ from .models import *
 def posts(request):
     return commonRequestHelper(request, Post)
 
+def aboutme(request):
+    return commonRequestHelper(request, AboutMe)
+
+def career(request):
+    return commonRequestHelper(request, Career)
+
+def education(request):
+    return commonRequestHelper(request, Education)
+
+def project(request):
+    return commonRequestHelper(request, Project)
+
+def skill(request):
+    return commonRequestHelper(request, Skill)
+
 
 def commonRequestHelper(request, model):
-    _model = [model.objects.filter(published_at__isnull=False).order_by('-published_at').first()]
+    _model = [model.objects.filter(created_at__isnull=False).order_by('-created_at').first()]
     _serialized = serializers.serialize('json', _model)
     return HttpResponse(_serialized, content_type="text/json-comment-filtered") 
