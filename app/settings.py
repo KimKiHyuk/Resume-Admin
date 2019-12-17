@@ -86,8 +86,6 @@ DATABASES = {
         'NAME': 'resume',
         'USER': secrets_base['DATABASE_ID'],
         'PASSWORD': secrets_base['DATABASE_PASSWORD'],
-        'HOST':'127.0.0.1',
-        'PORT':'5432'
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
