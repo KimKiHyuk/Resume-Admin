@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse
-from .models import Post
+from .models import *
 # Create your views here.
 
 def posts(request):
-    posts = Post.objects.filter(published_at__isnull=False).order_by('-published_at')
-    post_list = serializers.serialize('json', posts)
-    return HttpResponse(post_list, content_type="text/json-comment-filtered")
+    return commonRequestHelper(request, Post)
+
+
+def commonRequestHelper(request, model):
+    _model = [model.objects.filter(published_at__isnull=False).order_by('-published_at').first()]
+    _serialized = serializers.serialize('json', _model)
+    return HttpResponse(_serialized, content_type="text/json-comment-filtered") 

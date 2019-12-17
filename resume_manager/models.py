@@ -25,6 +25,5 @@ class AboutMe(models.Model):
 class Career(models.Model):
     period_from = models.DateField(null = True)
 
-class Models:
-    def __init__(self):
-        self.modelList = [Post, AboutMe, Career]
+def Models():
+    return [Post, AboutMe, Career]
