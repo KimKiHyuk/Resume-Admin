@@ -24,6 +24,6 @@ def skill(request):
 
 
 def commonRequestHelper(request, model):
-    _model = [model.objects.filter(created_at__isnull=False).order_by('-created_at').first()]
+    _model = model.objects.filter(created_at__isnull=False).order_by('-created_at')
     _serialized = serializers.serialize('json', _model)
     return HttpResponse(_serialized, content_type="text/json-comment-filtered") 
