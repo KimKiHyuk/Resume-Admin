@@ -14,3 +14,6 @@
 
 ## update requirements.txt
 * pip freeze > requirements.txt
+
+## deploy
+* heroku
