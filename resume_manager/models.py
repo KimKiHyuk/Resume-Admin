@@ -50,7 +50,7 @@ class Skill(models.Model):
     image = models.URLField()
     proficiency = models.IntegerField()
     hasgTags = ArrayField(
-        models.CharField(max_length=15)
+        models.CharField(max_length=15, blank=True, default=''), blank=True, default=list
     )
     created_at = models.DateTimeField(auto_now_add=True)
 

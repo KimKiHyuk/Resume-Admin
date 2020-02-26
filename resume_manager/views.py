@@ -2,23 +2,31 @@ from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse
 from .models import *
+from rest_framework.decorators import api_view
 # Create your views here.
 
+
+@api_view(['POST'])
 def posts(request):
     return commonRequestHelper(request, Post)
 
+@api_view()
 def aboutme(request):
     return commonRequestHelper(request, AboutMe)
 
+@api_view()
 def career(request):
     return commonRequestHelper(request, Career)
 
+@api_view()
 def education(request):
     return commonRequestHelper(request, Education)
 
+@api_view()
 def project(request):
     return commonRequestHelper(request, Project)
 
+@api_view()
 def skill(request):
     return commonRequestHelper(request, Skill)
 
