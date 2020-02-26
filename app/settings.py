@@ -30,7 +30,7 @@ SECRET_KEY = secrets_base['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['resume-admin.herokuapp.com']
+ALLOWED_HOSTS = ['resume-admin.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

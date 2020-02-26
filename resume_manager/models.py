@@ -11,6 +11,12 @@ class AboutMe(models.Model):
     introduce = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = '자기소개'
+
+    def __str__(self):
+        return self.name
+
 class Career(models.Model):
     company = models.CharField(max_length=20)
     experience = models.TextField()
@@ -19,6 +25,12 @@ class Career(models.Model):
     period_end = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = '커리어'
+
+    def __str__(self):
+        return self.company
+
 class Education(models.Model):
     insititute = models.CharField(max_length=40)
     type = models.CharField(max_length=20)
@@ -26,6 +38,12 @@ class Education(models.Model):
     period_end = models.DateField()
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = '교육기관'
+
+    def __str__(self):
+        return self.insititute
 
 class Skill(models.Model):
     name = models.CharField(max_length=20)
@@ -36,6 +54,12 @@ class Skill(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = '기술스택'
+
+    def __str__(self):
+        return self.name
+
 class Project(models.Model):
     category = models.CharField(max_length=20)
     title = models.CharField(max_length=30)
@@ -44,5 +68,8 @@ class Project(models.Model):
     github = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-def Models():
-    return [AboutMe, Career, Education, Skill, Project]
+    class Meta:
+        verbose_name_plural = '프로젝트'
+
+    def __str__(self):
+        return self.title
